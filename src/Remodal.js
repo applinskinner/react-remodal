@@ -131,7 +131,8 @@ export default function Remodal (
         'overlayClosesModal',
         'isOpen',
         'onClose',
-        'width'
+        'width',
+        'closeOnEscape' // refactor, don't know how this is supposed to be used but it's causing errors
       )
 
       return (
