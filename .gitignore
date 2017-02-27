@@ -20,7 +20,7 @@ Thumbs.db
 node_modules
 .cache
 coverage
-dist
+#dist
 example/app.js
 example/app.css
 example/app.js.map
