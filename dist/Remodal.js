@@ -58,13 +58,13 @@ var defaultClasses = {
   'dialog': 'react-remodal__dialog',
   'dialogEnter': 'react-remodal__dialog--enter',
   'dialogEnterActive': 'react-remodal__dialog--enter-active',
-  'dialogLeave': 'react-remodal__dialog--leave',
-  'dialogLeaveActive': 'react-remodal__dialog--leave-active',
+  'dialogExit': 'react-remodal__dialog--exit',
+  'dialogExitActive': 'react-remodal__dialog--exit-active',
   'overlay': 'react-remodal__overlay',
   'overlayEnter': 'react-remodal__overlay--enter',
   'overlayEnterActive': 'react-remodal__overlay--enter-active',
-  'overlayLeave': 'react-remodal__overlay--leave',
-  'overlayLeaveActive': 'react-remodal__overlay--leave-active',
+  'overlayExit': 'react-remodal__overlay--exit',
+  'overlayExitActive': 'react-remodal__overlay--exit-active',
   'wrap': 'react-remodal__wrap',
   'wrapIsOpen': 'react-remodal__wrap--is-open'
 };
@@ -155,19 +155,18 @@ function Remodal() {
           _react2.default.createElement(
             _TransitionPortal2.default,
             (0, _extends3.default)({}, props, {
-              transitionName: {
+              classNames: {
                 enter: classes.dialogEnter,
                 enterActive: classes.dialogEnterActive,
-                leave: classes.dialogLeave,
-                leaveActive: classes.dialogLeaveActive
+                exit: classes.dialogLeave,
+                exitActive: classes.dialogLeaveActive
               },
               onClick: this.handleClose.bind(this),
               style: {
                 cursor: this.props.overlayClosesModal ? 'pointer' : 'default'
               },
               className: (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, classes.wrap, true), (0, _defineProperty3.default)(_classNames, classes.wrapIsOpen, this.props.isOpen), _classNames)),
-              transitionEnterTimeout: transitions.dialogEnterTimeout,
-              transitionLeaveTimeout: transitions.dialogLeaveTimeout,
+              timeout: { enter: transitions.dialogEnterTimeout, exit: transitions.dialogLeaveTimeout },
               component: 'div' }),
             this.dialog
           ),
@@ -177,11 +176,10 @@ function Remodal() {
               transitionName: {
                 enter: classes.overlayEnter,
                 enterActive: classes.overlayEnterActive,
-                leave: classes.overlayLeave,
-                leaveActive: classes.overlayLeaveActive
+                exit: classes.overlayLeave,
+                exitActive: classes.overlayLeaveActive
               },
-              transitionEnterTimeout: transitions.overlayEnterTimeout,
-              transitionLeaveTimeout: transitions.overlayLeaveTimeout,
+              timeout: { enter: transitions.overlayEnterTimeout, exit: transitions.overlayLeaveTimeout },
               component: 'div' },
             this.overlay
           )

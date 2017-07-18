@@ -80,12 +80,12 @@
     "classnames": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
     "jsdom": "^9.9.1",
-    "react": "^15.4.1",
-    "react-addons-css-transition-group": "^15.4.1",
-    "react-addons-test-utils": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-portal": "^3.0.0",
+    "react": "^15.6.1",
+    "react-addons-test-utils": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "react-portal-minimal": "^4.0.2",
     "react-portal-wrap": "^1.1.1",
+    "react-transition-group": "^2.1.0",
     "scrollbar-width": "^3.1.1"
   }
 }

@@ -12,13 +12,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
+var _reactTransitionGroup = require('react-transition-group');
 
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+var _reactPortalMinimal = require('react-portal-minimal');
 
-var _reactPortal = require('react-portal');
-
-var _reactPortal2 = _interopRequireDefault(_reactPortal);
+var _reactPortalMinimal2 = _interopRequireDefault(_reactPortalMinimal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26,17 +24,23 @@ var TransitionPortal = function TransitionPortal(_ref) {
   var children = _ref.children,
       props = (0, _objectWithoutProperties3.default)(_ref, ['children']);
 
+  var content = null;
+
+  if (children) {
+    content = _react2.default.createElement(
+      _reactTransitionGroup.CSSTransition,
+      props,
+      children
+    );
+  }
+
   return _react2.default.createElement(
-    _reactPortal2.default,
+    _reactPortalMinimal2.default,
     { isOpened: true },
     _react2.default.createElement(
       Wrapper,
       null,
-      _react2.default.createElement(
-        _reactAddonsCssTransitionGroup2.default,
-        props,
-        children
-      )
+      content
     )
   );
 };

@@ -1,14 +1,22 @@
 import React, { PropTypes } from 'react'
-import Transition from 'react-addons-css-transition-group'
-import PortalWrap from 'react-portal'
+import { CSSTransition } from 'react-transition-group'
+import PortalWrap from 'react-portal-minimal'
 
 const TransitionPortal = ({ children, ...props }) => {
+  let content = null;
+
+  if (children) {
+    content = (
+      <CSSTransition {...props}>
+        {children}
+      </CSSTransition>
+    );
+  }
+
   return (
     <PortalWrap isOpened>
       <Wrapper>
-        <Transition {...props}>
-          {children}
-        </Transition>
+        {content}
       </Wrapper>
     </PortalWrap>
   );
