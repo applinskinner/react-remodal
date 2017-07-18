@@ -69,13 +69,13 @@
   transition: opacity 300ms ease-in, transform 300ms ease-in, -webkit-transform 300ms ease-in;
 }
 
-.react-remodal__dialog--leave {
+.react-remodal__dialog--exit {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
 }
 
-.react-remodal__dialog--leave-active {
+.react-remodal__dialog--exit-active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
   opacity: 0;
@@ -109,11 +109,11 @@
   transition: opacity 300ms;
 }
 
-.react-remodal__overlay--leave {
+.react-remodal__overlay--exit {
   opacity: 1;
 }
 
-.react-remodal__overlay--leave-active {
+.react-remodal__overlay--exit-active {
   opacity: 0;
   transition: opacity 300ms;
 }
