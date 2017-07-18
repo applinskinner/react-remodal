@@ -71,9 +71,9 @@ var defaultClasses = {
 
 var defaultTransitions = {
   dialogEnterTimeout: 300,
-  dialogLeaveTimeout: 300,
+  dialogExitTimeout: 300,
   overlayEnterTimeout: 300,
-  overlayLeaveTimeout: 300
+  overlayExitTimeout: 300
 };
 
 function Remodal() {
@@ -158,29 +158,27 @@ function Remodal() {
               classNames: {
                 enter: classes.dialogEnter,
                 enterActive: classes.dialogEnterActive,
-                exit: classes.dialogLeave,
-                exitActive: classes.dialogLeaveActive
+                exit: classes.dialogExit,
+                exitActive: classes.dialogExitActive
               },
               onClick: this.handleClose.bind(this),
               style: {
                 cursor: this.props.overlayClosesModal ? 'pointer' : 'default'
               },
               className: (0, _classnames2.default)((_classNames = {}, (0, _defineProperty3.default)(_classNames, classes.wrap, true), (0, _defineProperty3.default)(_classNames, classes.wrapIsOpen, this.props.isOpen), _classNames)),
-              timeout: { enter: transitions.dialogEnterTimeout, exit: transitions.dialogLeaveTimeout },
-              component: 'div' }),
+              timeout: { enter: transitions.dialogEnterTimeout, exit: transitions.dialogExitTimeout } }),
             this.dialog
           ),
           _react2.default.createElement(
             _TransitionPortal2.default,
             {
-              transitionName: {
+              classNames: {
                 enter: classes.overlayEnter,
                 enterActive: classes.overlayEnterActive,
-                exit: classes.overlayLeave,
-                exitActive: classes.overlayLeaveActive
+                exit: classes.overlayExit,
+                exitActive: classes.overlayExitActive
               },
-              timeout: { enter: transitions.overlayEnterTimeout, exit: transitions.overlayLeaveTimeout },
-              component: 'div' },
+              timeout: { enter: transitions.overlayEnterTimeout, exit: transitions.overlayExitTimeout } },
             this.overlay
           )
         );

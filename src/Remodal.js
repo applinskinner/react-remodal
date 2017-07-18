@@ -21,9 +21,9 @@ const defaultClasses = {
 
 const defaultTransitions = {
   dialogEnterTimeout: 300,
-  dialogLeaveTimeout: 300,
+  dialogExitTimeout: 300,
   overlayEnterTimeout: 300,
-  overlayLeaveTimeout: 300
+  overlayExitTimeout: 300
 }
 
 export default function Remodal (
@@ -141,8 +141,8 @@ export default function Remodal (
             classNames={{
               enter: classes.dialogEnter,
               enterActive: classes.dialogEnterActive,
-              exit: classes.dialogLeave,
-              exitActive: classes.dialogLeaveActive
+              exit: classes.dialogExit,
+              exitActive: classes.dialogExitActive
             }}
             onClick={::this.handleClose}
             style={{
@@ -152,19 +152,17 @@ export default function Remodal (
               [classes.wrap]: true,
               [classes.wrapIsOpen]: this.props.isOpen
             })}
-            timeout={{ enter: transitions.dialogEnterTimeout, exit: transitions.dialogLeaveTimeout }}
-            component='div'>
+            timeout={{ enter: transitions.dialogEnterTimeout, exit: transitions.dialogExitTimeout }}>
             {this.dialog}
           </TransitionPortal>
           <TransitionPortal
-            transitionName={{
+            classNames={{
               enter: classes.overlayEnter,
               enterActive: classes.overlayEnterActive,
-              exit: classes.overlayLeave,
-              exitActive: classes.overlayLeaveActive
+              exit: classes.overlayExit,
+              exitActive: classes.overlayExitActive
             }}
-            timeout={{ enter: transitions.overlayEnterTimeout, exit: transitions.overlayLeaveTimeout }}
-            component='div'>
+            timeout={{ enter: transitions.overlayEnterTimeout, exit: transitions.overlayExitTimeout }}>
             {this.overlay}
           </TransitionPortal>
         </div>
