@@ -1,5 +1,3 @@
-import getScrollbarWidth from 'scrollbar-width'
-
 let navigator = navigator || { platform: 'unknown' }
 const IS_IOS = /iPad|iPhone|iPod/.test(navigator.platform)
 
@@ -8,12 +6,10 @@ export function lock () {
     return
   }
 
-  const paddingRight = getScrollbarWidth(true)
   document.body.setAttribute('style', `
     overflow: hidden;
     -ms-touch-action: none;
     touch-action: none;
-    padding-right: ${paddingRight}px;
   `)
 }
 
